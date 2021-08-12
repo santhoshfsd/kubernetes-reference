@@ -20,3 +20,9 @@
 
 ## Access the container in the pod
  - kubectl exec <pod-name> -it sh
+
+ ## Resource limit
+ https://stackoverflow.com/questions/64080471/kubernetes-one-or-more-containers-do-not-have-resource-limits-warning-in-vs-c
+
+ ## memory limits
+ https://www.alibabacloud.com/blog/kubernetes-assign-memory-resources-and-limits-to-containers_594830
