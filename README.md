@@ -26,3 +26,7 @@
 
  ## memory limits
  https://www.alibabacloud.com/blog/kubernetes-assign-memory-resources-and-limits-to-containers_594830
+
+
+ ## nginx
+ port 80 - usr/share/nginx/html - index.html
