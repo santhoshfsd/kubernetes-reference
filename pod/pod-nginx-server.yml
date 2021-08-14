@@ -1,13 +1,20 @@
 apiVersion: v1
 kind: Pod
 metadata:
- name: my-nginxs 
+ name: node-api-server
  labels:
-  app: my-app
-  type: frontend
+  app: my-node-api-server
+  type: backend
 spec:
   containers: 
-    - name: my-nginxs
-      image: nginx:alpine
+    - name: node-api-server
+      image: node-server:latest
+      imagePullPolicy: IfNotPresent
       ports: 
-      - containerPort: 80
+      - containerPort: 3000
+  env:
+  - name: key
+    valuefrom: 
+      configMapKeyRef:
+        name: app-settings 
+        key: enemies

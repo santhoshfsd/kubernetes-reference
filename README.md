@@ -1,7 +1,7 @@
 # kubernetes-reference
 
 ## kubectl commands
-
+Set-Alias -Name k -value kubectl
 ### perform a trail create
 
 - kubectl create -f pod-nginx-server.yml --dry-run --validate=true 
@@ -30,3 +30,8 @@
 
  ## nginx
  port 80 - usr/share/nginx/html - index.html
+
+ ## port forward to a random port
+  kubectl port-forward deployment.apps/my-ngnix :80
+
+  https://learnk8s.io/deploying-nodejs-kubernetes#defining-a-service

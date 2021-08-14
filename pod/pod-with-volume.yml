@@ -1,0 +1,30 @@
+kind:apiVersion: v1
+kind: Pod
+metadata:
+  name: myapp
+  labels:
+    name: myapp
+spec:
+  volumes:
+    - name: html
+      emptyDir: {}
+  containers:
+  - name: myapp-nginx
+    image: nginx:alpine
+    resources:
+      limits:
+        memory: "128Mi"
+        cpu: "500m"
+    volumeMounts:
+      - name: html
+        mountPath: /usr/share/ngnix/html
+        readOnly: true
+  - name: myapp-nginx-updater
+    image: alpine
+    resources:
+      limits:
+        memory: "128Mi"
+        cpu: "500m"
+    command: ["/bin/sh", "-c"]
+    args:
+      - while true; do date >> /html/index.html; sleep 10; done
