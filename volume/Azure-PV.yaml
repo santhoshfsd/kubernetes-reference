@@ -1,0 +1,17 @@
+kind:apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: azure-volume
+spec:
+  capacity: "10gi"
+  accessModes:
+    - ReadWriteOnce
+    - ReadOnlyMany
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: slow
+  mountOptions:
+    - hard
+    - nfsvers=4.1
+  nfs:
+    path: /tmp
+    server: 172.17.0.2

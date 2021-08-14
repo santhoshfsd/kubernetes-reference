@@ -1,0 +1,22 @@
+kind:apiVersion: v1
+kind: Pod
+metadata:
+  name: azure-pod-vol
+  labels:
+    name: azure-pod-vol
+spec:
+  volumes:
+  - name: azure-volume
+    azureFile:
+      secretName:
+      shareName:
+      readOnly:
+  - name:
+    awsElasticBlockStore:
+      volumeID:
+      fsType:
+  - name:
+    gcePersistantDisk: 
+      pdName:
+      fsType:
+      

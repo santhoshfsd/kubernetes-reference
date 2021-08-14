@@ -1,0 +1,23 @@
+kind:apiVersion: v1
+kind: Pod
+metadata:
+  name: myapp
+  labels:
+    name: myapp
+spec:
+  volumes:
+  - name: docker-socket
+    hostPath: /var/run/docker.sock
+    type: Socket
+  containers:
+    - name: docker
+      image: docker
+      command: ["sleep"]
+      args: ["10000"]
+      resources:
+        limits:
+          memory: "128Mi"
+          cpu: "500m"
+      volumeMounts:
+        - name: docker-socket
+          mountPath: /var/run/docker.sock
