@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: init-pod-demo
+  labels:
+    app: initializer
+spec:
+  initContainers:
+  - name: init-app
+    image: busybox
+    command: ['sh','-c','until nslookup pluralsight-ftw; do echo waiting of PLS; sleep 1; done;echo sevice found!']
+  containers:
+  - name: init-pod-demo
+    image: nigelpoulton/web-app:1.0
+    resources:
+      limits:
+        memory: "128Mi"
+        cpu: "500m"
+    ports:
+      - containerPort: 8080

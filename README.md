@@ -12,11 +12,13 @@ Set-Alias -Name k -value kubectl
 
  ### apply changes
 
- - kubectl create -f pod-nginx-server.yml --save-config
+ - kubectl create -f pod-nginx-server.yml --save-config --record
  -save config 
     causes the resource config settings to be saved in the annotations
     save the initial state
  - kubectl describe pod [pod-name]
+ - record 
+   record the deployment command in the revision history
 
 ## Access the container in the pod
  - kubectl exec <pod-name> -it sh
@@ -35,3 +37,11 @@ Set-Alias -Name k -value kubectl
   kubectl port-forward deployment.apps/my-ngnix :80
 
   https://learnk8s.io/deploying-nodejs-kubernetes#defining-a-service
+
+
+## create
+  kubectl create -f .\nginx.deployment.yml --save-config --record
+
+
+  ## logs init container pod
+  kubectl logs  init-pod-demo -c init-app
