@@ -37,7 +37,7 @@ edit
 - `kubectl get pods --namespace kube-system`
 - `kubectl get namespace`
 - `kubectl get pods --all-namespaces`
-
+- `kubectl create namespace dev-ns`
 ## switch namespace
 - `kubectl config set-context $(kubectl config current-context) --namespace=dev`
 

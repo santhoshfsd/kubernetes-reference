@@ -34,3 +34,4 @@ spec:
         readOnly: true
 
 # kubectl apply -f .\pod-with-volume.yml
+# kubectl port-forward pod/myapp :80
